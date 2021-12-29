@@ -99,7 +99,7 @@ export default {
 				sources: [
 					{
 						type: 'video/mp4', // 这里的种类支持很多种：基本视频格式、直播、流媒体等，具体可以参看git网址项目
-						src: this.videoList[this.activeIndex].fileUrl // url地址
+						src: this.videoList[this.activeIndex].fileAddr // url地址
 					}
 				],
 				// poster: 'https://p1.music.126.net/5zs7IvmLv7KahY3BFzUmrg==/109951163635241613.jpg?param=600y500', // 你的封面地址

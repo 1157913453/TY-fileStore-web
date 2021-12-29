@@ -29,15 +29,15 @@
 				>
 					<template slot="title">
 						<i class="el-icon-user-solid"></i>
-						<span>{{ username }}</span>
+						<span>{{ userName }}</span>
 					</template>
 					<el-menu-item @click="exitButton()">退出</el-menu-item>
 				</el-submenu>
 				<template v-else>
 					<!-- 为了和其他菜单样式保持一致，请一定要添加类名 el-menu-item -->
 					<div class="el-menu-item exit" @click="exitButton()">退出</div>
-					<div class="el-menu-item username" v-show="isLogin">
-						<i class="el-icon-user-solid"></i> <span>{{ username }}</span>
+					<div class="el-menu-item userName" v-show="isLogin">
+						<i class="el-icon-user-solid"></i> <span>{{ userName }}</span>
 					</div>
 				</template>
 			</template>
@@ -77,7 +77,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters(['isLogin', 'username']),
+		...mapGetters(['isLogin', 'userName']),
 		// 当前激活菜单的 index
 		activeIndex() {
 			return this.$route.name || 'Home' //  获取当前路由名称
@@ -147,7 +147,7 @@ export default {
   .top-menu-list {
     flex: 1;
 
-    .login, .register, .username, .exit, .user-exit-submenu {
+    .login, .register, .userName, .exit, .user-exit-submenu {
       float: right;
     }
   }

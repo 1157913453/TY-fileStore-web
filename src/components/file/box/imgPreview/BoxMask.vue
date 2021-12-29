@@ -54,7 +54,7 @@
 				ref="imgLarge"
 				v-for="(item, index) in imgList"
 				:key="index"
-				:src="item.fileUrl"
+				:src="item.fileAddr"
 				v-show="index === activeIndex"
 			/>
 			<!-- 左右切换图标 -->

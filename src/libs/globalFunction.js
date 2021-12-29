@@ -73,11 +73,11 @@ const globalFunction = {
 	 * @returns {string} office 文件创建路径
 	 */
 	createFileOnlineByOffice(data) {
-		let fileUrl = `${location.protocol}//${location.host}${config.baseContext}`
+		let fileAddr = `${location.protocol}//${location.host}${config.baseContext}`
 		const { href } = router.resolve({
 			name: 'Onlyoffice',
 			query: {
-				fileUrl: fileUrl,
+				fileAddr: fileAddr,
 				fileName: data.fileName,
 				filePath: data.filePath,
 				extendName: data.extendName,
@@ -92,14 +92,14 @@ const globalFunction = {
 	 * @returns {string} office 文件在线预览路径
 	 */
 	getFileOnlineViewPathByOffice(row) {
-		let fileUrl = ''
+		let fileAddr = ''
 		let fileName = row.fileName + '.' + row.extendName
-		let filePath = row.fileUrl
+		let filePath = row.fileAddr
 		let fileId = row.fileId
 		let userFileId = row.userFileId
 		let extendName = row.extendName
 
-		fileUrl = `${location.protocol}//${location.host}${
+		fileAddr = `${location.protocol}//${location.host}${
 			config.baseContext
 		}/filetransfer/preview?userFileId=${
 			row.userFileId
@@ -109,7 +109,7 @@ const globalFunction = {
 		const { href } = router.resolve({
 			name: 'Onlyoffice',
 			query: {
-				fileUrl: fileUrl,
+				fileAddr: fileAddr,
 				fileName: fileName,
 				filePath: filePath,
 				fileId: fileId,
@@ -126,14 +126,14 @@ const globalFunction = {
 	 * @returns {string} office 文件在线编辑路径
 	 */
 	getFileOnlineEditPathByOffice(row) {
-		let fileUrl = ''
+		let fileAddr = ''
 		let fileName = row.fileName + '.' + row.extendName
-		let filePath = row.fileUrl
+		let filePath = row.fileAddr
 		let fileId = row.fileId
 		let userFileId = row.userFileId
 		let extendName = row.extendName
 
-		fileUrl = `${location.protocol}//${location.host}${
+		fileAddr = `${location.protocol}//${location.host}${
 			config.baseContext
 		}/filetransfer/preview?userFileId=${
 			row.userFileId
@@ -143,7 +143,7 @@ const globalFunction = {
 		const { href } = router.resolve({
 			name: 'Onlyoffice',
 			query: {
-				fileUrl: fileUrl,
+				fileAddr: fileAddr,
 				fileName: fileName,
 				filePath: filePath,
 				fileId: fileId,
@@ -246,14 +246,14 @@ const globalFunction = {
 				? imgInfoList.map((item) => {
 						return {
 							...item,
-							fileUrl: this.getViewFilePath(item),
+							fileAddr: this.getViewFilePath(item),
 							downloadLink: this.getDownloadFilePath(item)
 						}
 				  })
 				: [
 						{
 							...imgInfo,
-							fileUrl: this.getViewFilePath(imgInfo),
+							fileAddr: this.getViewFilePath(imgInfo),
 							downloadLink: this.getDownloadFilePath(imgInfo)
 						}
 				  ]
@@ -274,14 +274,14 @@ const globalFunction = {
 				? videoInfoList.map((item) => {
 						return {
 							...item,
-							fileUrl: this.getViewFilePath(item),
+							fileAddr: this.getViewFilePath(item),
 							downloadLink: this.getDownloadFilePath(item)
 						}
 				  })
 				: [
 						{
 							...videoInfo,
-							fileUrl: this.getViewFilePath(videoInfo),
+							fileAddr: this.getViewFilePath(videoInfo),
 							downloadLink: this.getDownloadFilePath(videoInfo)
 						}
 				  ]

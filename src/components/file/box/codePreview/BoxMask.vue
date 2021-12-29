@@ -234,8 +234,8 @@ export default {
 				token: this.getCookies(this.$config.tokenKeyName)
 			}).then((res) => {
 				this.codeMirrorLoading = false
-				this.originalCodeText =
-					typeof res === 'object' ? JSON.stringify(res) : res
+				this.originalCodeText = res
+					// typeof res === 'object' ? JSON.stringify(res) : res
 				this.codeMirrorText = this.originalCodeText
 			})
 		},

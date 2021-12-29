@@ -12,17 +12,17 @@
 				label-width="100px"
 				hide-required-asterisk
 			>
-				<el-form-item prop="username">
+				<el-form-item prop="userName">
 					<el-input
 						prefix-icon="el-icon-user"
-						v-model="registerForm.username"
+						v-model="registerForm.userName"
 						placeholder="用户名"
 					></el-input>
 				</el-form-item>
-				<el-form-item prop="telephone">
+				<el-form-item prop="phone">
 					<el-input
 						prefix-icon="el-icon-mobile-phone"
-						v-model="registerForm.telephone"
+						v-model="registerForm.phone"
 						placeholder="手机号"
 					></el-input>
 				</el-form-item>
@@ -103,13 +103,13 @@ export default {
 		return {
 			// 注册表单
 			registerForm: {
-				telephone: '',
-				username: '',
+				phone: '',
+				userName: '',
 				password: ''
 			},
 			// 注册表单校验规则
 			registerFormRules: {
-				username: [
+				userName: [
 					{ required: true, message: '请输入用户名', trigger: 'blur' }
 				],
 				password: [
@@ -121,7 +121,7 @@ export default {
 						trigger: 'blur'
 					}
 				],
-				telephone: [
+				phone: [
 					{ required: true, message: '请输入手机号', trigger: 'blur' },
 					{ min: 11, max: 11, message: '请输入11位手机号', trigger: 'blur' }
 				]
@@ -140,10 +140,10 @@ export default {
 	},
 	watch: {
 		//  滑动解锁验证通过时，若重新输入手机号、用户名或密码，滑动解锁恢复原样
-		'registerForm.telephone'() {
+		'registerForm.phone'() {
 			this.resetVerifyPassing()
 		},
-		'registerForm.username'() {
+		'registerForm.userName'() {
 			this.resetVerifyPassing()
 		},
 		'registerForm.password'() {
@@ -181,8 +181,8 @@ export default {
 		updateIsPassing(isPassing) {
 			if (isPassing) {
 				//  校验手机号
-				this.$refs.registerForm.validateField('telephone', (telephoneError) => {
-					if (telephoneError) {
+				this.$refs.registerForm.validateField('phone', (phoneError) => {
+					if (phoneError) {
 						// 校验未通过
 						if (this.screenWidth > 768) {
 							this.registerBtnDisabled = true

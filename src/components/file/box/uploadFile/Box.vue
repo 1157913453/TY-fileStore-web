@@ -123,10 +123,10 @@ export default {
 		return {
 			// 上传组件配置项
 			options: {
-				target: `${this.$config.baseContext}/filetransfer/uploadfile`, // 上传文件-目标 URL
+				target: `${this.$config.baseContext}/file/upload`, // 上传文件-目标 URL
 				chunkSize: 1024 * 1024, //  每个分片的大小
 				fileParameterName: 'file', //  上传文件时文件的参数名，默认 file
-				maxChunkRetries: 3, //  并发上传数，默认 3
+				maxChunkRetries: 1, //  并发上传数，默认 3
 				testChunks: true, //  是否开启分片已存在于服务器的校验
 				// 服务器分片校验函数，秒传及断点续传基础
 				checkChunkUploadedByResponse: function (chunk, message) {
@@ -134,7 +134,7 @@ export default {
 					if (objMessage.success) {
 						let data = objMessage.data
 						if (data.skipUpload) {
-							// 分片已存在于服务器中
+							// 分片已存在于服务器中nvm
 							return true
 						}
 						return (data.uploaded || []).indexOf(chunk.offset + 1) >= 0

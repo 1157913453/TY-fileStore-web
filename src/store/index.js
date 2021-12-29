@@ -18,9 +18,9 @@ export default new Vuex.Store({
 		// 登录状态
 		isLogin: (state) => state.user.isLogin,
 		// 用户姓名
-		username: (state) => state.user.userInfoObj.username,
+		userName: (state) => state.user.userInfoObj.userName,
 		// 用户ID
-		userId: (state) => state.user.userInfoObj.userId,
+		Id: (state) => state.user.userInfoObj.Id,
 		// 表格显示列
 		selectedColumnList: (state) =>
 			state.fileList.selectedColumnList === null

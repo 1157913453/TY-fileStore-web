@@ -72,7 +72,7 @@ import FileGrid from './components/FileGrid.vue'
 import FileTimeLine from './components/FileTimeLine.vue'
 
 import {
-	getFileListByPath,
+	getFileListByPhone,
 	getFileListByType,
 	getRecoveryFile,
 	getMyShareFileList,
@@ -108,6 +108,7 @@ export default {
 		},
 		// 当前所在路径
 		filePath() {
+      console.log("当前的位置是",this.$route)
 			return this.$route.query.filePath ? this.$route.query.filePath : '/'
 		},
 		// 文件查看模式 0列表模式 1网格模式 2 时间线模式
@@ -191,7 +192,7 @@ export default {
 				currentPage: this.pageData.currentPage,
 				pageCount: this.pageData.pageCount
 			}
-			getFileListByPath(data).then((res) => {
+			getFileListByPhone(data).then((res) => {
 				if (res.success) {
 					this.fileList = res.data.list
 					this.pageData.total = res.data.total

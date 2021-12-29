@@ -12,10 +12,10 @@
 				label-width="100px"
 				hide-required-asterisk
 			>
-				<el-form-item prop="telephone">
+				<el-form-item prop="phone">
 					<el-input
 						prefix-icon="el-icon-mobile-phone"
-						v-model="loginForm.telephone"
+						v-model="loginForm.phone"
 						placeholder="手机号"
 					></el-input>
 				</el-form-item>
@@ -96,12 +96,12 @@ export default {
 		return {
 			// 登录表单数据
 			loginForm: {
-				telephone: '',
+				phone: '',
 				password: ''
 			},
 			// 登录表单验证规则
 			loginFormRules: {
-				telephone: [
+				phone: [
 					{ required: true, message: '请输入手机号', trigger: 'blur' }
 				],
 				password: [
@@ -115,8 +115,8 @@ export default {
 				]
 			},
 			isShowDragVerify: false, //  页面宽度小于 768px 时，滑动解锁是否显示
-			isPassing: false, //  滑动解锁是否验证通过
-			loginBtnDisabled: true, //  登录按钮是否禁用
+			isPassing: true, //  滑动解锁是否验证通过
+			loginBtnDisabled: false, //  登录按钮是否禁用
 			loginBtnLoading: false //  登录按钮是否 loading 状态
 		}
 	},
@@ -132,25 +132,25 @@ export default {
 			return this.$store.state.common.screenWidth
 		}
 	},
-	watch: {
-		//  滑动解锁验证通过时，若重新输入用户名或密码，滑动解锁恢复原样
-		'loginForm.telephone'() {
-			this.resetVerifyPassing()
-		},
-		'loginForm.password'() {
-			this.resetVerifyPassing()
-		}
-	},
+	// watch: {
+	// 	//  滑动解锁验证通过时，若重新输入用户名或密码，滑动解锁恢复原样
+	// 	'loginForm.phone'() {
+	// 		this.resetVerifyPassing()
+	// 	},
+	// 	'loginForm.password'() {
+	// 		this.resetVerifyPassing()
+	// 	}
+	// },
 	created() {
 		// 用户若已登录，自动跳转到首页
 		if (this.$store.getters.isLogin) {
-			let username = this.$store.getters.username
+			let userName = this.$store.getters.userName
 			this.$message({
-				message: `${username} 您已登录！已跳转到首页`,
+				message: `${userName} 您已登录！已跳转到网盘首页`,
 				center: true,
 				type: 'success'
 			})
-			this.$router.replace({ name: 'Home' })
+			this.$router.replace({ name: 'File' })
 		}
 		//  绘制背景图
 		this.$nextTick(() => {
@@ -160,7 +160,7 @@ export default {
 	},
 	mounted() {
 		if (this.screenWidth <= 768) {
-			this.loginBtnDisabled = false
+			this.loginBtnDisabled = true
 		}
 	},
 	methods: {
@@ -182,7 +182,7 @@ export default {
 		updateIsPassing(isPassing) {
 			if (isPassing) {
 				if (this.screenWidth > 768) {
-					this.loginBtnDisabled = false
+					this.loginBtnDisabled = true
 				} else {
 					this.handleUserLogin('loginForm')
 				}
@@ -217,7 +217,7 @@ export default {
 		/**
 		 * 用户登录
 		 */
-		handleUserLogin(formName) {
+		handleUserLogin() { //这里传forName
 			login(this.loginForm, true)
 				.then((res) => {
 					this.loginBtnLoading = false
@@ -226,9 +226,10 @@ export default {
 					}
 					if (res.success) {
 						this.setCookies(this.$config.tokenKeyName, res.data.token) //  存储登录状态
-						this.$message.success('登录成功！')
+						this.$message.success('登录成功！hahahahaha')
 						this.$router.replace(this.url) //  跳转到前一个页面或者网盘主页
-						this.$refs[formName].resetFields() //  清空表单
+            // this.$router.replace({ path: '/file' })
+						// this.$refs[formName].resetFields() //  清空表单
 					} else {
 						this.$message.error('手机号或密码错误！')
 						this.isPassing = false

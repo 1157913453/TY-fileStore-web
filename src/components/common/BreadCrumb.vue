@@ -72,6 +72,7 @@ export default {
 		breadCrumbList: {
 			get() {
 				let filePath = this.$route.query.filePath
+        console.log("filePath是",filePath)
 				let filePathList = filePath ? filePath.split('/') : []
 				let res = [] //  返回结果数组
 				let _path = [] //  存放祖先路径

@@ -128,7 +128,7 @@ export default {
 			this.sureBtnLoading = true
 			saveShareFile({
 				filePath: this.targetPath,
-				files: JSON.stringify(this.fileInfo)
+				files: this.fileInfo
 			})
 				.then((res) => {
 					this.sureBtnLoading = false

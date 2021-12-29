@@ -130,7 +130,7 @@ export default {
 				//  批量移动
 				let data = {
 					filePath: this.targetPath,
-					files: JSON.stringify(this.fileInfo)
+					files: this.fileInfo
 				}
 				batchMoveFile(data)
 					.then((res) => {

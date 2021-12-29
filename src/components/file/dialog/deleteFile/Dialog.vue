@@ -60,14 +60,15 @@ export default {
 					// 删除文件到回收站
 					case 1: {
 						res = await batchDeleteFile({
-							files: JSON.stringify(this.fileInfo)
+							// files: JSON.stringify(this.fileInfo)
+              files: this.fileInfo
 						})
 						break
 					}
 					// 回收站中彻底删除
 					case 2: {
 						res = await batchDeleteRecoveryFile({
-							recoveryFileIds: JSON.stringify(this.fileInfo)
+							recoveryFileIds: this.fileInfo
 						})
 						break
 					}

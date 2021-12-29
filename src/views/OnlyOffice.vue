@@ -125,7 +125,7 @@ export default {
 		showDocDetail() {
 			let data = {
 				userFileId: this.fileInfo.userFileId,
-				previewUrl: this.fileInfo.fileUrl
+				previewUrl: this.fileInfo.fileAddr
 			}
 			previewOfficeFile(data).then((res) => {
 				if (res.code === 200) {
@@ -144,7 +144,7 @@ export default {
 		editDoc() {
 			let data = {
 				userFileId: this.fileInfo.userFileId,
-				previewUrl: this.fileInfo.fileUrl
+				previewUrl: this.fileInfo.fileAddr
 			}
 			editOfficeFile(data).then((res) => {
 				if (res.code === 200) {

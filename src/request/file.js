@@ -22,11 +22,11 @@ import { get, post } from './http'
  * 获取文件列表相关接口
  */
 // 获取文件列表（区分文件路径）
-export const getFileListByPath = (p) => get('/file/getfilelist', p)
+export const getFileListByPhone = (p) => get('/file/list', p)
 // 获取文件列表（区分文件类型）
 export const getFileListByType = (p) => get('/file/selectfilebyfiletype', p)
 // 获取回收站文件列表
-export const getRecoveryFile = (p) => post('/recoveryfile/list', p)
+export const getRecoveryFile = (p) => post('/recoveryFile/list', p)
 // 获取我已分享的文件列表
 export const getMyShareFileList = (p) => get('/share/shareList', p)
 // 获取存储占用
@@ -38,7 +38,7 @@ export const getFoldTree = (p) => get('/file/getfiletree', p)
  * 单文件操作相关接口
  */
 // 创建文件
-export const createFold = (p) => post('/file/createfile', p)
+export const createFold = (p) => post('/file/mkdir', p)
 // 删除文件
 export const deleteFile = (p) => post('/file/deletefile', p)
 // 复制文件
@@ -68,7 +68,7 @@ export const saveShareFile = (p) => post('/share/savesharefile', p)
  * 文件批量操作相关接口
  */
 // 批量删除文件
-export const batchDeleteFile = (p) => post('/file/batchdeletefile', p)
+export const batchDeleteFile = (p) => post('/file/batchDeleteFile', p)
 // 批量移动文件
 export const batchMoveFile = (p) => post('/file/batchmovefile', p)
 
@@ -77,12 +77,12 @@ export const batchMoveFile = (p) => post('/file/batchmovefile', p)
  */
 // 回收站文件删除
 export const deleteRecoveryFile = (p) =>
-	post('/recoveryfile/deleterecoveryfile', p)
+	post('/recoveryFile/deleteRecoveryFile', p)
 // 回收站文件还原
-export const restoreRecoveryFile = (p) => post('/recoveryfile/restorefile', p)
+export const restoreRecoveryFile = (p) => post('/recoveryFile/restoreFile', p)
 // 回收站文件批量删除
 export const batchDeleteRecoveryFile = (p) =>
-	post('/recoveryfile/batchdelete', p)
+	post('/recoveryFile/batchDelete', p)
 
 /**
  * 文件公共接口

@@ -86,7 +86,7 @@ export default {
 			this.$refs[formName].validate((valid) => {
 				if (valid) {
 					createFold({
-						fileName: this.form.fileName,
+						foldName: this.form.fileName,
 						filePath: this.filePath,
 						isDir: 1
 					})

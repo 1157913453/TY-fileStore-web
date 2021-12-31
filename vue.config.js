@@ -25,7 +25,7 @@ module.exports = {
 	// 修改或新增 html-webpack-plugin 的值，在 index.html 里面能读取 htmlWebpackPlugin.options.title
 	chainWebpack: (config) => {
 		config.plugin('html').tap((args) => {
-			args[0].title = '奇文网盘'
+			args[0].title = '天涯网盘'
 			return args
 		})
 	},

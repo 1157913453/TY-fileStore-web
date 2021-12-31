@@ -61,24 +61,24 @@
 			</el-form>
 		</div>
 		<!-- 页面宽度小于等于 768 像素时，在遮罩层内显示滑动解锁，以防止移动端浏览器自带的左滑返回上一页手势 -->
-		<div
-			class="drag-verify-modal"
-			v-show="isShowDragVerify"
-			v-if="screenWidth <= 768"
-			@click.self="isShowDragVerify = false"
-		>
-			<drag-verify
-				ref="dragVerifyRef"
-				text="请按住滑块拖动解锁"
-				successText="验证通过"
-				handlerIcon="el-icon-d-arrow-right"
-				successIcon="el-icon-circle-check"
-				handlerBg="#F5F7FA"
-				:width="300"
-				:isPassing.sync="isPassing"
-				@update:isPassing="updateIsPassing"
-			></drag-verify>
-		</div>
+<!--		<div-->
+<!--			class="drag-verify-modal"-->
+<!--			v-show="isShowDragVerify"-->
+<!--			v-if="screenWidth <= 768"-->
+<!--			@click.self="isShowDragVerify = false"-->
+<!--		>-->
+<!--			<drag-verify-->
+<!--				ref="dragVerifyRef"-->
+<!--				text="请按住滑块拖动解锁"-->
+<!--				successText="验证通过"-->
+<!--				handlerIcon="el-icon-d-arrow-right"-->
+<!--				successIcon="el-icon-circle-check"-->
+<!--				handlerBg="#F5F7FA"-->
+<!--				:width="300"-->
+<!--				:isPassing.sync="isPassing"-->
+<!--				@update:isPassing="updateIsPassing"-->
+<!--			></drag-verify>-->
+<!--		</div>-->
 	</div>
 </template>
 
@@ -126,7 +126,7 @@ export default {
 					{ min: 11, max: 11, message: '请输入11位手机号', trigger: 'blur' }
 				]
 			},
-			isShowDragVerify: false, //  页面宽度小于 768px 时，滑动解锁是否显示
+			// isShowDragVerify: false, //  页面宽度小于 768px 时，滑动解锁是否显示
 			isPassing: false, //  滑动解锁是否验证通过
 			registerBtnDisabled: true, //  注册按钮是否禁用
 			registerBtnLoading: false //  注册按钮是否 loading 状态
@@ -139,16 +139,16 @@ export default {
 		}
 	},
 	watch: {
-		//  滑动解锁验证通过时，若重新输入手机号、用户名或密码，滑动解锁恢复原样
-		'registerForm.phone'() {
-			this.resetVerifyPassing()
-		},
-		'registerForm.userName'() {
-			this.resetVerifyPassing()
-		},
-		'registerForm.password'() {
-			this.resetVerifyPassing()
-		}
+		// //  滑动解锁验证通过时，若重新输入手机号、用户名或密码，滑动解锁恢复原样
+		// 'registerForm.phone'() {
+		// 	this.resetVerifyPassing()
+		// },
+		// 'registerForm.userName'() {
+		// 	this.resetVerifyPassing()
+		// },
+		// 'registerForm.password'() {
+		// 	this.resetVerifyPassing()
+		// }
 	},
 	created() {
 		//  绘制背景图
@@ -214,7 +214,7 @@ export default {
 					if (this.screenWidth > 768) {
 						this.handleUserRegister(formName)
 					} else {
-						this.isShowDragVerify = true
+						// this.isShowDragVerify = true
 						this.registerBtnLoading = false
 					}
 				} else {
@@ -231,9 +231,9 @@ export default {
 			addUser(this.registerForm)
 				.then((res) => {
 					this.registerBtnLoading = false
-					if (this.screenWidth <= 768) {
-						this.isShowDragVerify = false
-					}
+					// if (this.screenWidth <= 768) {
+					// 	this.isShowDragVerify = false
+					// }
 					if (res.success) {
 						this.$notify({
 							title: '成功',
@@ -248,9 +248,9 @@ export default {
 				})
 				.catch(() => {
 					this.registerBtnLoading = false
-					if (this.screenWidth <= 768) {
-						this.isShowDragVerify = false
-					}
+					// if (this.screenWidth <= 768) {
+					// 	this.isShowDragVerify = false
+					// }
 				})
 		}
 	}

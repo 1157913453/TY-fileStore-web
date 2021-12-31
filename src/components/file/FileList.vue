@@ -72,8 +72,7 @@ import FileGrid from './components/FileGrid.vue'
 import FileTimeLine from './components/FileTimeLine.vue'
 
 import {
-	getFileListByPhone,
-	getFileListByType,
+	getFileList,
 	getRecoveryFile,
 	getMyShareFileList,
 	searchFile
@@ -192,7 +191,7 @@ export default {
 				currentPage: this.pageData.currentPage,
 				pageCount: this.pageData.pageCount
 			}
-			getFileListByPhone(data).then((res) => {
+			getFileList(data).then((res) => {
 				if (res.success) {
 					this.fileList = res.data.list
 					this.pageData.total = res.data.total
@@ -259,7 +258,7 @@ export default {
 				currentPage: this.pageData.currentPage,
 				pageCount: this.pageData.pageCount
 			}
-			getFileListByType(data).then((res) => {
+			getFileList(data).then((res) => {
 				if (res.success) {
 					this.fileList = res.data.list
 					this.pageData.total = res.data.total

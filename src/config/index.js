@@ -18,7 +18,7 @@ const config = {
 	/**
 	 * 网站名称
 	 */
-	siteName: '奇文网盘',
+	siteName: '天涯网盘',
 	/**
 	 * 请求后台接口 URL 代理时的上下文
 	 * @description 仅适用于本地开发环境代理时使用，

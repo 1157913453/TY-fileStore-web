@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="join-us">
-			<div class="desc">如果你也是对技术感兴趣的小伙伴，欢迎加入我们</div>
+			<div class="desc">本作品基于奇文网盘前端项目二次开发，作者联系方式</div>
 			<ul class="join-list">
 				<li class="join-item" v-for="(item, index) in joinList" :key="index">
 					<el-popover placement="top" trigger="hover">
@@ -55,13 +55,13 @@ export default {
 				{
 					class: 'qq',
 					logo: 'icon-qq',
-					img: require('_a/images/footer/QQImg.png'),
+					img: require('_a/images/footer/QQ.jpg'),
 					title: 'QQ群'
 				},
 				{
 					class: 'wechat',
 					logo: 'icon-weixin-copy',
-					img: require('_a/images/footer/wechatImg.png'),
+					img: require('_a/images/footer/WeChat1.png'),
 					title: '微信公众号'
 				},
 				{

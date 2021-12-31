@@ -14,19 +14,6 @@ export default new Router({
             meta: {title: '登录'}
         },
         {
-            path: '/home',
-            name: 'Home',
-            component: () => import(/* webpackChunkName: "home" */ '_v/Home.vue'),
-            meta: {
-                title:
-                    '开源网盘 | 多种存储方式 | 在线预览编辑 | 分片、断点续传 | 文件分享',
-                content: {
-                    description:
-                        '基于 Spring Boot + Vue CLI@3(Vue 2.0) 框架开发的 Web 文件系统，旨在为用户提供一个简单、方便的文件存储方案'
-                }
-            }
-        },
-        {
             path: '/login',
             name: 'Login',
             component: () => import(/* webpackChunkName: "login" */ '_v/Login.vue'),

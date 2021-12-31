@@ -22,9 +22,9 @@ import { get, post } from './http'
  * 获取文件列表相关接口
  */
 // 获取文件列表（区分文件路径）
-export const getFileListByPhone = (p) => get('/file/list', p)
+export const getFileList = (p) => get('/file/list', p)
 // 获取文件列表（区分文件类型）
-export const getFileListByType = (p) => get('/file/selectfilebyfiletype', p)
+// export const getFileList = (p) => get('/file/list', p)
 // 获取回收站文件列表
 export const getRecoveryFile = (p) => post('/recoveryFile/list', p)
 // 获取我已分享的文件列表

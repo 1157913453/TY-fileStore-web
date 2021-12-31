@@ -125,10 +125,12 @@ export default {
 		 */
 		handleInputBlurEnter() {
 			this.isShowInput = false
+      console.log("1 is", this.filePath)
 			if (this.inputFilePath !== this.filePath) {
 				this.$router.push({
 					query: { filePath: `${this.inputFilePath}/`, fileType: 0 }
 				})
+        console.log("2 is", this.filePath)
 			}
 		},
 		// 获取文件参数

@@ -28,24 +28,23 @@
 					></el-input>
 				</el-form-item>
 				<!-- 页面宽度大于 768 像素时，直接在表单项内显示滑动解锁 -->
-				<el-form-item v-if="screenWidth > 768">
-					<drag-verify
-						ref="dragVerifyRef"
-						text="请按住滑块拖动解锁"
-						successText="验证通过"
-						handlerIcon="el-icon-d-arrow-right"
-						successIcon="el-icon-circle-check"
-						handlerBg="#F5F7FA"
-						:width="375"
-						:isPassing.sync="isPassing"
-						@update:isPassing="updateIsPassing"
-					></drag-verify>
-				</el-form-item>
+<!--				<el-form-item v-if="screenWidth > 768">-->
+<!--					<drag-verify-->
+<!--						ref="dragVerifyRef"-->
+<!--						text="请按住滑块拖动解锁"-->
+<!--						successText="验证通过"-->
+<!--						handlerIcon="el-icon-d-arrow-right"-->
+<!--						successIcon="el-icon-circle-check"-->
+<!--						handlerBg="#F5F7FA"-->
+<!--						:width="375"-->
+<!--						:isPassing.sync="isPassing"-->
+<!--						@update:isPassing="updateIsPassing"-->
+<!--					></drag-verify>-->
+<!--				</el-form-item>-->
 				<el-form-item class="login-btn-form-item">
 					<el-button
 						class="login-btn"
 						type="primary"
-						:disabled="loginBtnDisabled"
 						:loading="loginBtnLoading"
 						@click="submitForm('loginForm')"
 						>登录</el-button
@@ -54,30 +53,30 @@
 			</el-form>
 		</div>
 		<!-- 页面宽度小于等于 768 像素时，在遮罩层内显示滑动解锁，以防止移动端浏览器自带的左滑返回上一页手势 -->
-		<div
-			class="drag-verify-modal"
-			v-show="isShowDragVerify"
-			v-if="screenWidth <= 768"
-			@click.self="isShowDragVerify = false"
-		>
-			<drag-verify
-				ref="dragVerifyRef"
-				text="请按住滑块拖动解锁"
-				successText="验证通过"
-				handlerIcon="el-icon-d-arrow-right"
-				successIcon="el-icon-circle-check"
-				handlerBg="#F5F7FA"
-				:width="300"
-				:isPassing.sync="isPassing"
-				@update:isPassing="updateIsPassing"
-			></drag-verify>
-		</div>
+<!--		<div-->
+<!--			class="drag-verify-modal"-->
+<!--			v-show="isShowDragVerify"-->
+<!--			v-if="screenWidth <= 768"-->
+<!--			@click.self="isShowDragVerify = false"-->
+<!--		>-->
+<!--&lt;!&ndash;			<drag-verify&ndash;&gt;-->
+<!--&lt;!&ndash;				ref="dragVerifyRef"&ndash;&gt;-->
+<!--&lt;!&ndash;				text="请按住滑块拖动解锁"&ndash;&gt;-->
+<!--&lt;!&ndash;				successText="验证通过"&ndash;&gt;-->
+<!--&lt;!&ndash;				handlerIcon="el-icon-d-arrow-right"&ndash;&gt;-->
+<!--&lt;!&ndash;				successIcon="el-icon-circle-check"&ndash;&gt;-->
+<!--&lt;!&ndash;				handlerBg="#F5F7FA"&ndash;&gt;-->
+<!--&lt;!&ndash;				:width="300"&ndash;&gt;-->
+<!--&lt;!&ndash;				:isPassing.sync="isPassing"&ndash;&gt;-->
+<!--&lt;!&ndash;				@update:isPassing="updateIsPassing"&ndash;&gt;-->
+<!--&lt;!&ndash;			></drag-verify>&ndash;&gt;-->
+<!--		</div>-->
 	</div>
 </template>
 
 <script>
 import CanvasNest from 'canvas-nest.js'
-import DragVerify from '_c/common/DragVerify.vue' //  引入滑动解锁组件
+// import DragVerify from '_c/common/DragVerify.vue' //  引入滑动解锁组件
 import { login } from '_r/user.js'
 
 // 配置
@@ -91,7 +90,7 @@ const config = {
 
 export default {
 	name: 'Login',
-	components: { DragVerify },
+	components: { },
 	data() {
 		return {
 			// 登录表单数据
@@ -114,9 +113,9 @@ export default {
 					}
 				]
 			},
-			isShowDragVerify: false, //  页面宽度小于 768px 时，滑动解锁是否显示
+			// isShowDragVerify: false, //  页面宽度小于 768px 时，滑动解锁是否显示
 			isPassing: true, //  滑动解锁是否验证通过
-			loginBtnDisabled: false, //  登录按钮是否禁用
+			// loginBtnDisabled: true, //  登录按钮是否禁用
 			loginBtnLoading: false //  登录按钮是否 loading 状态
 		}
 	},
@@ -159,9 +158,9 @@ export default {
 		})
 	},
 	mounted() {
-		if (this.screenWidth <= 768) {
-			this.loginBtnDisabled = true
-		}
+		// if (this.screenWidth <= 768) {
+		// 	this.loginBtnDisabled = true
+		// }
 	},
 	methods: {
 		/**
@@ -169,11 +168,11 @@ export default {
 		 * 注册按钮禁用
 		 */
 		resetVerifyPassing() {
-			this.isPassing = false
+			this.isPassing = true
 			this.$refs.dragVerifyRef.reset()
-			if (this.screenWidth > 768) {
-				this.loginBtnDisabled = true
-			}
+			// if (this.screenWidth > 768) {
+			// 	this.loginBtnDisabled = true
+			// }
 		},
 		/**
 		 * 滑动解锁完成 回调函数
@@ -181,15 +180,7 @@ export default {
 		 */
 		updateIsPassing(isPassing) {
 			if (isPassing) {
-				if (this.screenWidth > 768) {
-					this.loginBtnDisabled = true
-				} else {
 					this.handleUserLogin('loginForm')
-				}
-			} else {
-				if (this.screenWidth > 768) {
-					this.loginBtnDisabled = true
-				}
 			}
 		},
 		/**
@@ -204,7 +195,7 @@ export default {
 					if (this.screenWidth > 768) {
 						this.handleUserLogin(formName)
 					} else {
-						this.isShowDragVerify = true
+						// this.isShowDragVerify = true
 						this.loginBtnLoading = false
 					}
 				} else {
@@ -221,26 +212,26 @@ export default {
 			login(this.loginForm, true)
 				.then((res) => {
 					this.loginBtnLoading = false
-					if (this.screenWidth <= 768) {
-						this.isShowDragVerify = false
-					}
+					// if (this.screenWidth <= 768) {
+					// 	this.isShowDragVerify = false
+					// }
 					if (res.success) {
 						this.setCookies(this.$config.tokenKeyName, res.data.token) //  存储登录状态
-						this.$message.success('登录成功！hahahahaha')
+						this.$message.success('登录成功！欢迎来到天涯网盘')
 						this.$router.replace(this.url) //  跳转到前一个页面或者网盘主页
             // this.$router.replace({ path: '/file' })
 						// this.$refs[formName].resetFields() //  清空表单
 					} else {
 						this.$message.error('手机号或密码错误！')
-						this.isPassing = false
+						this.isPassing = true
 						this.$refs.dragVerifyRef.reset()
 					}
 				})
 				.catch(() => {
 					this.loginBtnLoading = false
-					if (this.screenWidth <= 768) {
-						this.isShowDragVerify = false
-					}
+					// if (this.screenWidth <= 768) {
+					// 	this.isShowDragVerify = false
+					// }
 				})
 		}
 	}

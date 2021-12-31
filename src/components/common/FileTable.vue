@@ -109,7 +109,7 @@
 				v-if="selectedColumnList.includes('extendName') && screenWidth > 768"
 			>
 				<template slot-scope="scope">
-					<span v-if="scope.row.extendName">{{ scope.row.extendName }}</span>
+					<span v-if="scope.row.storageType">{{ scope.row.storageType }}</span>
 					<span v-else>文件夹</span>
 				</template>
 			</el-table-column>

@@ -322,12 +322,14 @@ const globalFunction = {
 			} else if (Number(router.currentRoute.query.fileType) !== 6) {
 				// 回收站页面不允许打开文件夹
 				// 网盘页面
+				console.log("777是",row)
 				router.push({
 					query: {
 						filePath: row.filePath + row.fileName + '/',
 						fileType: 0
 					}
 				})
+				console.log("888是",router)
 			}
 		}
 		// 若是文件，则进行相应的预览

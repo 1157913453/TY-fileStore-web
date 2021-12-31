@@ -241,7 +241,7 @@ export default {
 					filePath: '',
 					fileInfo: this.selectedFiles.map((item) => {
 						return {
-							userFileId: item.userFileId
+							fileId: item.fileId
 						}
 					})
 				}).then(() => {

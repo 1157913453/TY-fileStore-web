@@ -37,8 +37,8 @@ const globalFunction = {
 	 * @returns {string} 图片缩略图路径
 	 */
 	getImgMinPath(row) {
-		return `${config.baseContext}/filetransfer/preview?userFileId=${
-			row.userFileId
+		return `${config.baseContext}/filetransfer/preview?fileId=${
+			row.fileId
 		}&isMin=true&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode
 		}&token=${globalFunction.getCookies(config.tokenKeyName)}`
@@ -49,8 +49,8 @@ const globalFunction = {
 	 * @returns {string} 文件路径
 	 */
 	getViewFilePath(row) {
-		return `${config.baseContext}/filetransfer/preview?userFileId=${
-			row.userFileId
+		return `${config.baseContext}/filetransfer/preview?fileId=${
+			row.fileId
 		}&isMin=false&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode
 		}&token=${globalFunction.getCookies(config.tokenKeyName)}`
@@ -61,8 +61,8 @@ const globalFunction = {
 	 * @returns {string}  文件下载路径
 	 */
 	getDownloadFilePath(row) {
-		return `${config.baseContext}/file/download?userFileId=${
-			row.userFileId
+		return `${config.baseContext}/file/download?fileId=${
+			row.fileId
 		}&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode
 		}&token=${globalFunction.getCookies(config.tokenKeyName)}`
@@ -101,8 +101,8 @@ const globalFunction = {
 
 		fileAddr = `${location.protocol}//${location.host}${
 			config.baseContext
-		}/filetransfer/preview?userFileId=${
-			row.userFileId
+		}/filetransfer/preview?fileId=${
+			row.fileId
 		}&isMin=false&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode
 		}&token=${globalFunction.getCookies(config.tokenKeyName)}`
@@ -135,8 +135,8 @@ const globalFunction = {
 
 		fileAddr = `${location.protocol}//${location.host}${
 			config.baseContext
-		}/filetransfer/preview?userFileId=${
-			row.userFileId
+		}/filetransfer/preview?fileId=${
+			row.fileId
 		}&isMin=false&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode
 		}&token=${globalFunction.getCookies(config.tokenKeyName)}`

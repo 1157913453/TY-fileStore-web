@@ -61,7 +61,7 @@ const globalFunction = {
 	 * @returns {string}  文件下载路径
 	 */
 	getDownloadFilePath(row) {
-		return `${config.baseContext}/filetransfer/downloadfile?userFileId=${
+		return `${config.baseContext}/file/download?userFileId=${
 			row.userFileId
 		}&shareBatchNum=${row.shareBatchNum}&extractionCode=${
 			row.extractionCode

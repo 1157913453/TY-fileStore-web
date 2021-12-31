@@ -211,12 +211,13 @@ export default {
 			this.$refs[formName].validate((valid) => {
 				if (valid) {
 					// 表单各项校验通过
-					if (this.screenWidth > 768) {
-						this.handleUserRegister(formName)
-					} else {
-						// this.isShowDragVerify = true
-						this.registerBtnLoading = false
-					}
+					// if (this.screenWidth > 768) {
+					// 	this.handleUserRegister(formName)
+					// } else {
+					// 	// this.isShowDragVerify = true
+					// 	this.registerBtnLoading = false
+					// }
+          this.handleUserRegister(formName)
 				} else {
 					this.$message.error('请完善信息！')
 					this.registerBtnLoading = false

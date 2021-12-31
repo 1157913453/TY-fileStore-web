@@ -192,12 +192,13 @@ export default {
 			this.$refs[formName].validate((valid) => {
 				if (valid) {
 					// 表单各项校验通过
-					if (this.screenWidth > 768) {
-						this.handleUserLogin(formName)
-					} else {
-						// this.isShowDragVerify = true
-						this.loginBtnLoading = false
-					}
+					// if (this.screenWidth > 768) {
+					// 	this.handleUserLogin(formName)
+					// } else {
+					// 	// this.isShowDragVerify = true
+					// 	this.loginBtnLoading = false
+					// }
+          this.handleUserLogin(formName)
 				} else {
 					this.$message.error('请完善信息！')
 					this.loginBtnLoading = false

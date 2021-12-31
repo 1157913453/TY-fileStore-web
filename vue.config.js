@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
 	// 选项...
-	publicPath: '/',
+	publicPath: '/file/',
 
 	devServer: {
 		disableHostCheck: true,

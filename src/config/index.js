@@ -13,7 +13,7 @@ const config = {
 		process.env.NODE_ENV === 'production'
 			? location.host.indexOf('.qiwenshare.com') !== -1
 				? '.qiwenshare.com'
-				: ''
+				: 'zrgo.top'
 			: location.hostname,
 	/**
 	 * 网站名称
